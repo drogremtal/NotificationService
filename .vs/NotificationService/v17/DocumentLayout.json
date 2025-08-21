@@ -1,22 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\",
+  "WorkspaceRootPath": "D:\\Project\\NotificationService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|c:\\users\\\u043A\u043E\u0441\u0442\u044F\\desktop\\notification\\notification\\notification\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|c:\\users\\\u043A\u043E\u0441\u0442\u044F\\desktop\\notification\\notification\\notification.infrastructure\\email\\smtpemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|solutionrelative:notification.infrastructure\\email\\smtpemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|c:\\users\\\u043A\u043E\u0441\u0442\u044F\\desktop\\notification\\notification\\notification\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|c:\\users\\\u043A\u043E\u0441\u0442\u044F\\desktop\\notification\\notification\\notification.infrastructure\\email\\smtpconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|solutionrelative:notification.infrastructure\\email\\smtpconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,8 +13,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 215,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +22,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SmtpConfig.cs",
-              "DocumentMoniker": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification.Infrastructure\\Email\\SmtpConfig.cs",
-              "RelativeDocumentMoniker": "Notification.Infrastructure\\Email\\SmtpConfig.cs",
-              "ToolTip": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification.Infrastructure\\Email\\SmtpConfig.cs",
-              "RelativeToolTip": "Notification.Infrastructure\\Email\\SmtpConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:44:11.938Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification\\Program.cs",
-              "RelativeDocumentMoniker": "Notification\\Program.cs",
-              "ToolTip": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification\\Program.cs",
-              "RelativeToolTip": "Notification\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:42:49.39Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SmtpEmailService.cs",
-              "DocumentMoniker": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification.Infrastructure\\Email\\SmtpEmailService.cs",
-              "RelativeDocumentMoniker": "Notification.Infrastructure\\Email\\SmtpEmailService.cs",
-              "ToolTip": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification.Infrastructure\\Email\\SmtpEmailService.cs",
-              "RelativeToolTip": "Notification.Infrastructure\\Email\\SmtpEmailService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:38:52.858Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "NotificationController.cs",
-              "DocumentMoniker": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification\\Controllers\\NotificationController.cs",
-              "RelativeDocumentMoniker": "Notification\\Controllers\\NotificationController.cs",
-              "ToolTip": "C:\\Users\\\u041A\u043E\u0441\u0442\u044F\\Desktop\\Notification\\Notification\\Notification\\Controllers\\NotificationController.cs",
-              "RelativeToolTip": "Notification\\Controllers\\NotificationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAuAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Program.cs",
+              "RelativeDocumentMoniker": "Notification\\Program.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Program.cs",
+              "RelativeToolTip": "Notification\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:37:59.048Z",
+              "WhenOpened": "2025-08-21T16:13:43.047Z",
               "EditorCaption": ""
             }
           ]
