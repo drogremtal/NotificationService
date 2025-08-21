@@ -29,7 +29,9 @@ namespace NotificationService.Infrastructure.Email
         {
 
             var mailMessage = CreateMailMessage(emailNotification);
-            await _smtpClient.SendMailAsync(mailMessage);            
+
+            await _smtpClient.SendMailAsync(mailMessage);
+
             return true;
         }
 

@@ -30,8 +30,8 @@ namespace NotificationService.Infrastructure.Repository
 
         public async Task AddAsync(NotificationEntity notification)
         {
-            _dbContext.Notifications.AddAsync(notification);
-            _dbContext.SaveChangesAsync();
+           await _dbContext.Notifications.AddAsync(notification);
+           await _dbContext.SaveChangesAsync();
         }
 
         public Task UpdateAsync(NotificationEntity notification)

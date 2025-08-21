@@ -1,0 +1,46 @@
+﻿using Confluent.Kafka;
+using Microsoft.Extensions.Options;
+using Notification.Infrastructure.Email.Dtos;
+using NotificationService.Infrastructure.Interface;
+using NotificationService.Infrastructure.Messaging.Config;
+using System.Text.Json;
+
+namespace NotificationService.Infrastructure.Messaging
+{
+    public class KafkaMessageProducer : IMessageBus
+    {
+        private readonly IProducer<string, string> _producer;
+        private readonly string _topic;
+        private readonly KafkaProducerConfig _kafkaProducerConfig;
+
+        public KafkaMessageProducer(IProducer<string, string> services)
+        {
+            _producer = services;
+
+            //_kafkaProducerConfig = kafkaProducerConfig.Value;
+
+            //var producerConfig = new ProducerConfig()
+            //{
+            //    BootstrapServers = _kafkaProducerConfig.BootstrapServers,
+            //};
+
+            //_producer = new ProducerBuilder<Null, string>(producerConfig).Build();
+            _topic = "notifications_send";
+
+        }
+
+        public async Task PushNotification(EmailNotification notification)
+        {
+            var message = new
+            {
+                Recipient = notification.Recipient,
+                Title = notification.Subject,
+                Message = notification.Message,
+            };
+
+            var jsonMessage = JsonSerializer.Serialize(message);
+
+            await _producer.ProduceAsync(_topic, new Message<string, string> { Value = jsonMessage });
+        }
+    }
+}

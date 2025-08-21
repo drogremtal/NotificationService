@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Confluent.Kafka;
+using Microsoft.AspNetCore.Mvc;
 using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
 using NotificationService.Dtos;
@@ -17,7 +18,9 @@ namespace NotificationService.Controllers
             _notificationService = notificationService;
         }
 
-        [HttpPost]
+        [HttpPost("SendNotification")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> SendNotification(SendNotificationRequest notification)
         {
 
@@ -30,5 +33,24 @@ namespace NotificationService.Controllers
             await _notificationService.SendNotificationAsync(sendNotificationDto);
             return Ok();
         }
+
+
+        [HttpPost("SendNotificationMq")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> SendNotificationMq(SendNotificationRequest notification)
+        {
+
+            var sendNotificationDto = new SendNotificationDto()
+            {
+                Message = notification.Message,
+                Title = notification.Title,
+                Recipient = notification.Recipient
+            };
+            await _notificationService.SendNotificationMqAsync(sendNotificationDto);
+            return Ok();
+        }
+
     }
+
 }

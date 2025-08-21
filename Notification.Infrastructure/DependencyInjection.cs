@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Notification.Infrastructure.Email.Interface;
 using NotificationService.Domain.Interface;
 using NotificationService.Infrastructure.Email;
+using NotificationService.Infrastructure.Interface;
+using NotificationService.Infrastructure.Messaging;
 using NotificationService.Infrastructure.Repository;
 
 namespace NotificationService.Infrastructure
@@ -14,8 +16,10 @@ namespace NotificationService.Infrastructure
       
             //services.Configure<SmtpConfig>(configuration.GetSection("SmtpConfig"));
             services.AddScoped<INotificationRepository, NotificationRepository>();
-            services.AddScoped<ISmtpEmailService, SmtpEmailService>();
-            
+            services.AddSingleton<ISmtpEmailService, SmtpEmailService>();
+            services.AddScoped<IMessageBus, KafkaMessageProducer>();
+            //services.AddSingleton<INotificationProcessor, NotificationProcessor>();
+            services.AddHostedService<KafkaMessageConsumer>();
 
             return services;
         }

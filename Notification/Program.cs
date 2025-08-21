@@ -1,3 +1,4 @@
+using Confluent.Kafka;
 using NotificationService;
 using NotificationService.Application.Interface;
 using NotificationService.Application.Services;
@@ -24,7 +25,13 @@ builder.Services.Configure<SmtpConfig>(builder.Configuration.GetSection("SmtpCon
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHostedService<MigrationHostedService>();
 
-
+builder.AddKafkaProducer<string, string>("kafka");
+builder.AddKafkaConsumer<string, string>("kafka", options =>
+{
+    options.Config.GroupId = "my-consumer-group";
+    options.Config.AutoOffsetReset = AutoOffsetReset.Earliest;
+    options.Config.EnableAutoCommit = false;
+});
 
 var app = builder.Build();
 
