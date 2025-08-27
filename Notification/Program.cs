@@ -1,7 +1,11 @@
 using Confluent.Kafka;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using NotificationService;
 using NotificationService.Application.Interface;
 using NotificationService.Application.Services;
+using NotificationService.Controllers;
+using NotificationService.Dtos.Mapper;
 using NotificationService.Infrastructure;
 using NotificationService.Infrastructure.Data;
 using NotificationService.Infrastructure.Email;
@@ -17,6 +21,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(cfg => { },typeof(TemplateProfiles));
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddScoped<INotificationService, NotificationAppService>();
 
 builder.AddNpgsqlDbContext<NotificationDbContext>("notificationDb");
@@ -24,6 +30,8 @@ builder.AddNpgsqlDbContext<NotificationDbContext>("notificationDb");
 builder.Services.Configure<SmtpConfig>(builder.Configuration.GetSection("SmtpConfig"));
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHostedService<MigrationHostedService>();
+
+builder.Services.AddScoped<INotificationTemplateService, NotificationTemplateService>();
 
 builder.AddKafkaProducer<string, string>("kafka");
 builder.AddKafkaConsumer<string, string>("kafka", options =>
@@ -51,5 +59,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();
