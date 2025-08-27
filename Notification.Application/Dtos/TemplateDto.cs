@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NotificationService.Application.Dtos
 {
-    public class Template
+    public class TemplateDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

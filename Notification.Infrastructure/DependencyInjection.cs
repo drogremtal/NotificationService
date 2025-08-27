@@ -16,6 +16,7 @@ namespace NotificationService.Infrastructure
       
             //services.Configure<SmtpConfig>(configuration.GetSection("SmtpConfig"));
             services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddScoped<ITemplateRepository, TemplateRepository>();
             services.AddSingleton<ISmtpEmailService, SmtpEmailService>();
             services.AddScoped<IMessageBus, KafkaMessageProducer>();
             //services.AddSingleton<INotificationProcessor, NotificationProcessor>();

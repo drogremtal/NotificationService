@@ -10,10 +10,10 @@ namespace NotificationService.Application.Interface
 {
     public interface INotificationTemplateService
     {
-        List<Template> GetList();
-        Template Get(Guid id);
-        void Delete(Guid id);
+        Task<List<TemplateDto>> GetList();
+        Task<TemplateDto> Get(Guid id);
+        Task Delete(Guid id);
         Task Add(TemplateCreate item);
-        void Update(Guid id,TemplateCreate item);
+        Task Update(Guid id,TemplateCreate item);
     }
 }
