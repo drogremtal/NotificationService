@@ -32,19 +32,18 @@ namespace NotificationService.Controllers
 
         // GET: api/<AdminController>
         [HttpGet]
-        public List<TemplateResponseDto> Get()
+        public  async Task<List<TemplateResponseDto>> GetList()
         {
-            var res = _template.GetList();
-            var list = new List<TemplateResponseDto>();
+            var res = await _template.GetList();
+            var list = _mapper.Map<List<TemplateResponseDto>>(res);
             return list;
         }
 
         // GET api/<AdminController>/5
         [HttpGet("{id}")]
-        public TemplateResponseDto Get(Guid id)
+        public async Task<TemplateResponseDto> Get(Guid id)
         {
-
-            var template = _template.Get(id);
+            var template = await _template.Get(id);
             var templateDto = _mapper.Map<TemplateResponseDto>(template);
             return templateDto;
         }
@@ -62,7 +61,7 @@ namespace NotificationService.Controllers
                 return BadRequest(ModelState);
             }
 
-            var create = _mapper.Map<TemplateCreate>(templateCreateRequest);
+            var create = _mapper.Map<TemplateDto>(templateCreateRequest);
 
             await _template.Add(create);
             return Ok();
@@ -72,7 +71,7 @@ namespace NotificationService.Controllers
         [HttpPut("{id}")]
         public void Put(Guid id,  AddTemplateDto value)
         {
-            var updateModel = new TemplateCreate();
+            var updateModel = new TemplateDto();
             _template.Update(id, updateModel);
 
         }
@@ -83,5 +82,7 @@ namespace NotificationService.Controllers
         {
             _template.Delete(id);
         }
+
+
     }
 }

@@ -1,14 +1,12 @@
 using Confluent.Kafka;
 using FluentValidation;
-using Microsoft.Extensions.DependencyInjection;
 using NotificationService;
 using NotificationService.Application.Interface;
 using NotificationService.Application.Services;
-using NotificationService.Controllers;
-using NotificationService.Dtos.Mapper;
 using NotificationService.Infrastructure;
 using NotificationService.Infrastructure.Data;
 using NotificationService.Infrastructure.Email;
+using NotificationService.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -22,7 +22,7 @@ namespace NotificationService.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Notification.Domain.Entities.NotificationEntity", b =>
+            modelBuilder.Entity("NotificationService.Domain.Entities.NotificationEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,6 +48,9 @@ namespace NotificationService.Infrastructure.Migrations
                     b.Property<DateTime?>("SentAt")
                         .HasColumnType("timestamp(6)");
 
+                    b.Property<Guid>("TemplateId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -59,7 +62,57 @@ namespace NotificationService.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("TemplateId");
+
                     b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("NotificationService.Domain.Entities.TemplateEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Template")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("Templates");
+                });
+
+            modelBuilder.Entity("NotificationService.Domain.Entities.NotificationEntity", b =>
+                {
+                    b.HasOne("NotificationService.Domain.Entities.TemplateEntity", "Template")
+                        .WithMany("NotificationsCollection")
+                        .HasForeignKey("TemplateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Template");
+                });
+
+            modelBuilder.Entity("NotificationService.Domain.Entities.TemplateEntity", b =>
+                {
+                    b.Navigation("NotificationsCollection");
                 });
 #pragma warning restore 612, 618
         }

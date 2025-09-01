@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NotificationService.Domain.Interface
+namespace NotificationService.Infrastructure.Interface
 {
     public interface ITemplateRepository
     {
@@ -13,6 +13,7 @@ namespace NotificationService.Domain.Interface
         Task Delete(TemplateEntity entity);
         Task<TemplateEntity> GetById(Guid id);
         Task<IEnumerable<TemplateEntity>> GetAll();
+        Task Update(TemplateEntity entity);
 
     }
 }

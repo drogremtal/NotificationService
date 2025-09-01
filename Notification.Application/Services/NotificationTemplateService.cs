@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore.Design.Internal;
+using Microsoft.Extensions.Logging;
 using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
-using NotificationService.Domain.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NotificationService.Domain.Entities;
+using NotificationService.Infrastructure.Interface;
 
 namespace NotificationService.Application.Services
 {
@@ -15,10 +11,13 @@ namespace NotificationService.Application.Services
     {
         private readonly ITemplateRepository _templateRepository;
         private readonly IMapper _mapper;
-        public NotificationTemplateService(ITemplateRepository templateRepository, IMapper mapper)
+        private readonly ILogger<NotificationTemplateService> _logger;
+
+        public NotificationTemplateService(ITemplateRepository templateRepository, IMapper mapper, ILogger<NotificationTemplateService> logger)
         {
             _mapper = mapper;
             _templateRepository = templateRepository;
+            _logger = logger;
         }
         public async Task<List<TemplateDto>> GetList()
         {
@@ -36,17 +35,20 @@ namespace NotificationService.Application.Services
 
         public async Task Delete(Guid id)
         {
-   
+            var entity = await _templateRepository.GetById(id);
+            await _templateRepository.Delete(entity);
         }
 
-        public async Task Add(TemplateCreate item)
+        public async Task Add(TemplateDto item)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<TemplateEntity>(item);
+            await _templateRepository.Create(entity);
         }
 
-        public async Task Update(Guid id, TemplateCreate item)
+        public async Task Update(Guid id, TemplateDto item)
         {
-            throw new NotImplementedException();
+            var data = _mapper.Map<TemplateEntity>(item);
+            await _templateRepository.Update(data);
         }
     }
 }

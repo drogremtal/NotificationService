@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Notification.Infrastructure.Email.Interface;
-using NotificationService.Domain.Interface;
 using NotificationService.Infrastructure.Email;
 using NotificationService.Infrastructure.Interface;
 using NotificationService.Infrastructure.Messaging;

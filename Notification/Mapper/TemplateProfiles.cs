@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NotificationService.Application.Dtos;
+using NotificationService.Domain.Entities;
 using NotificationService.Dtos;
 
 namespace NotificationService.Mapper
@@ -10,6 +11,7 @@ namespace NotificationService.Mapper
         {
             CreateMap<AddTemplateDto, TemplateDto>();
             CreateMap<EditTemplateDto, TemplateDto>();
+            CreateMap<TemplateDto, TemplateEntity>();
 
             CreateMap<TemplateDto,TemplateResponseDto>();
 

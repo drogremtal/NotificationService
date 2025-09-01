@@ -17,9 +17,6 @@ namespace NotificationService.Infrastructure.Data.Configuration
             builder.Property(n => n.CreatedAt).HasColumnType("timestamp(6)");
             builder.Property(n => n.SentAt).HasColumnType("timestamp(6)");
             builder.Property(n => n.Metadata);
-
-
-
         }
     }
 }

@@ -3,7 +3,6 @@ using Notification.Infrastructure.Email.Interface;
 using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
 using NotificationService.Domain.Entities;
-using NotificationService.Domain.Interface;
 using NotificationService.Infrastructure.Interface;
 
 namespace NotificationService.Application.Services

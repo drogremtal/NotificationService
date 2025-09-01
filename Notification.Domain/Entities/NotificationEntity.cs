@@ -10,5 +10,7 @@
         public DateTime CreatedAt { get; set; }= DateTime.Now;
         public DateTime? SentAt { get; set; }
         public string Metadata { get; set; } = string.Empty;
+
+        public TemplateEntity Template { get; set; }
     }
 }

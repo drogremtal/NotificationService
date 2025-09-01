@@ -13,9 +13,9 @@ namespace NotificationService.Tests.Controllers
     public class AdminControllerTest
     {
 
-        private AdminController adminController;
+        private readonly AdminController adminController;
         private readonly Mock<INotificationTemplateService> _template;
-        private readonly Mock<ILogger<AdminController> _logger;
+        private readonly Mock<ILogger<AdminController>> _logger;
         private readonly IValidator<AddTemplateDto> _validator;
 
         [Fact]

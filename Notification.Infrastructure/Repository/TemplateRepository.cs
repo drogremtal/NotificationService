@@ -1,33 +1,45 @@
-﻿using NotificationService.Domain.Entities;
-using NotificationService.Domain.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using NotificationService.Domain.Entities;
+using NotificationService.Infrastructure.Data;
+using NotificationService.Infrastructure.Interface;
 
 namespace NotificationService.Infrastructure.Repository
 {
     public class TemplateRepository : ITemplateRepository
     {
-        public Task Create(TemplateEntity entity)
+        private readonly NotificationDbContext _dbContext;
+
+        public TemplateRepository(NotificationDbContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
         }
 
-        public Task Delete(TemplateEntity entity)
+        public async  Task Create(TemplateEntity entity)
         {
-            throw new NotImplementedException();
+            await _dbContext.Templates.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<TemplateEntity>> GetAll()
+        public async Task Delete(TemplateEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Templates.Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public Task<TemplateEntity> GetById(Guid id)
+        public async Task<IEnumerable<TemplateEntity>> GetAll()
+        {          
+            return await _dbContext.Templates.ToListAsync();
+        }
+
+        public async Task Update(TemplateEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Templates.Update(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+        
+        public async Task<TemplateEntity> GetById(Guid id)
+        {
+            return await _dbContext.Templates.Where(q => q.Id == id).FirstOrDefaultAsync();
         }
     }
 }
