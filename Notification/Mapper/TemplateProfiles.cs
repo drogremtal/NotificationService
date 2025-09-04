@@ -10,11 +10,9 @@ namespace NotificationService.Mapper
         public TemplateProfiles()
         {
             CreateMap<AddTemplateRequest, TemplateDto>();
-            CreateMap<EditTemplateDto, TemplateDto>();
-            CreateMap<TemplateDto, TemplateEntity>();
-
-            CreateMap<TemplateDto,TemplateResponseDto>();
-
+            CreateMap<EditTemplateRequest, TemplateDto>();
+            CreateMap<TemplateDto, TemplateEntity>().ReverseMap();
+            CreateMap<TemplateDto,TemplateResponse>();
         }
     }
 }

@@ -3,32 +3,44 @@
   "WorkspaceRootPath": "D:\\Project\\NotificationService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|d:\\project\\notificationservice\\notification.tests\\controllers\\admincontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|solutionrelative:notification.tests\\controllers\\admincontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|d:\\project\\notificationservice\\notification.application\\services\\notificationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|solutionrelative:notification.application\\services\\notificationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|d:\\project\\notificationservice\\notification.tests\\controllers\\notificationcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|solutionrelative:notification.tests\\controllers\\notificationcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|d:\\project\\notificationservice\\notification.application\\interface\\inotificationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|solutionrelative:notification.application\\interface\\inotificationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\dtos\\addtemplatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\dtos\\addtemplatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|d:\\project\\notificationservice\\notification.infrastructure\\repository\\templaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|solutionrelative:notification.infrastructure\\repository\\templaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\dtos\\addtemplaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\dtos\\addtemplaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\dtos\\edittemplaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\dtos\\edittemplaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|d:\\project\\notificationservice\\notification.tests\\controllers\\admincontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|solutionrelative:notification.tests\\controllers\\admincontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|d:\\project\\notificationservice\\notification.infrastructure\\interface\\itemplaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|solutionrelative:notification.infrastructure\\interface\\itemplaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\mapper\\templateprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\mapper\\templateprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|d:\\project\\notificationservice\\notification.tests\\dtos\\addtemplatedtotest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}|Notification.Tests\\NotificationService.Tests.csproj|solutionrelative:notification.tests\\dtos\\addtemplatedtotest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,17 +49,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 157,
           "SelectedChildIndex": 66,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -59,6 +63,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
@@ -262,6 +270,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
@@ -303,66 +315,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AddTemplateDto.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Dtos\\AddTemplateDto.cs",
-              "RelativeDocumentMoniker": "Notification\\Dtos\\AddTemplateDto.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Dtos\\AddTemplateDto.cs",
-              "RelativeToolTip": "Notification\\Dtos\\AddTemplateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Title": "TemplateRepository.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Repository\\TemplateRepository.cs",
+              "RelativeDocumentMoniker": "Notification.Infrastructure\\Repository\\TemplateRepository.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Repository\\TemplateRepository.cs",
+              "RelativeToolTip": "Notification.Infrastructure\\Repository\\TemplateRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAnwCEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T15:03:51.789Z",
+              "WhenOpened": "2025-09-04T12:41:05.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AdminControllerTest.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Tests\\Controllers\\AdminControllerTest.cs",
-              "RelativeDocumentMoniker": "Notification.Tests\\Controllers\\AdminControllerTest.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification.Tests\\Controllers\\AdminControllerTest.cs",
-              "RelativeToolTip": "Notification.Tests\\Controllers\\AdminControllerTest.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwDQAAAAAAAAAAAAAAA==",
+              "Title": "NotificationTemplateService.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Application\\Services\\NotificationTemplateService.cs",
+              "RelativeDocumentMoniker": "Notification.Application\\Services\\NotificationTemplateService.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Application\\Services\\NotificationTemplateService.cs",
+              "RelativeToolTip": "Notification.Application\\Services\\NotificationTemplateService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowC8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:01:22.032Z",
+              "WhenOpened": "2025-09-04T12:27:51.25Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NotificationControllerTest.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Tests\\Controllers\\NotificationControllerTest.cs",
-              "RelativeDocumentMoniker": "Notification.Tests\\Controllers\\NotificationControllerTest.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification.Tests\\Controllers\\NotificationControllerTest.cs",
-              "RelativeToolTip": "Notification.Tests\\Controllers\\NotificationControllerTest.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAABIAAAAAAAAAA==",
+              "Title": "INotificationTemplateService.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Application\\Interface\\INotificationTemplateService.cs",
+              "RelativeDocumentMoniker": "Notification.Application\\Interface\\INotificationTemplateService.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Application\\Interface\\INotificationTemplateService.cs",
+              "RelativeToolTip": "Notification.Application\\Interface\\INotificationTemplateService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T15:18:06.154Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Program.cs",
-              "RelativeDocumentMoniker": "Notification\\Program.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Program.cs",
-              "RelativeToolTip": "Notification\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:41:55.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TemplateProfiles.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Mapper\\TemplateProfiles.cs",
-              "RelativeDocumentMoniker": "Notification\\Mapper\\TemplateProfiles.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Mapper\\TemplateProfiles.cs",
-              "RelativeToolTip": "Notification\\Mapper\\TemplateProfiles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:24:44.275Z",
+              "WhenOpened": "2025-09-04T12:27:49.169Z",
               "EditorCaption": ""
             },
             {
@@ -373,22 +359,87 @@
               "RelativeDocumentMoniker": "Notification\\Controllers\\AdminController.cs",
               "ToolTip": "D:\\Project\\NotificationService\\Notification\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Notification\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAIAwwDUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAowFIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:11:37.567Z",
+              "WhenOpened": "2025-09-04T12:19:38.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddTemplateRequest.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Dtos\\AddTemplateRequest.cs",
+              "RelativeDocumentMoniker": "Notification\\Dtos\\AddTemplateRequest.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Dtos\\AddTemplateRequest.cs",
+              "RelativeToolTip": "Notification\\Dtos\\AddTemplateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:43:18.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EditTemplateRequest.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Dtos\\EditTemplateRequest.cs",
+              "RelativeDocumentMoniker": "Notification\\Dtos\\EditTemplateRequest.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Dtos\\EditTemplateRequest.cs",
+              "RelativeToolTip": "Notification\\Dtos\\EditTemplateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:43:22.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddTemplateDtoTest.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Tests\\Dtos\\AddTemplateDtoTest.cs",
+              "RelativeDocumentMoniker": "Notification.Tests\\Dtos\\AddTemplateDtoTest.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Tests\\Dtos\\AddTemplateDtoTest.cs",
+              "RelativeToolTip": "Notification.Tests\\Dtos\\AddTemplateDtoTest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:19:38.536Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "NotificationController.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Controllers\\NotificationController.cs",
-              "RelativeDocumentMoniker": "Notification\\Controllers\\NotificationController.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Controllers\\NotificationController.cs",
-              "RelativeToolTip": "Notification\\Controllers\\NotificationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AdminControllerTest.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Tests\\Controllers\\AdminControllerTest.cs",
+              "RelativeDocumentMoniker": "Notification.Tests\\Controllers\\AdminControllerTest.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Tests\\Controllers\\AdminControllerTest.cs",
+              "RelativeToolTip": "Notification.Tests\\Controllers\\AdminControllerTest.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAuwE4AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:11:36.946Z",
+              "WhenOpened": "2025-09-04T12:19:38.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ITemplateRepository.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Interface\\ITemplateRepository.cs",
+              "RelativeDocumentMoniker": "Notification.Infrastructure\\Interface\\ITemplateRepository.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Interface\\ITemplateRepository.cs",
+              "RelativeToolTip": "Notification.Infrastructure\\Interface\\ITemplateRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:41:03.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TemplateProfiles.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Mapper\\TemplateProfiles.cs",
+              "RelativeDocumentMoniker": "Notification\\Mapper\\TemplateProfiles.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Mapper\\TemplateProfiles.cs",
+              "RelativeToolTip": "Notification\\Mapper\\TemplateProfiles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:19:23.01Z",
               "EditorCaption": ""
             }
           ]

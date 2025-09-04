@@ -25,7 +25,8 @@ namespace NotificationService.Tests.Dtos
                 Description: "Описание шаблона",
                 Type: "Тип шаблона",
                 Subject: "",
-                Template: "Шаблон сообщения");
+                Template: "Шаблон сообщения",
+                Enabled: true);
 
 
             var res = _validator.TestValidate(template);
@@ -45,7 +46,9 @@ namespace NotificationService.Tests.Dtos
                 Description: "Описание шаблона",
                 Type: "Тип шаблона",
                 Subject: "",
-                Template: "Шаблон сообщения");
+                Template: "Шаблон сообщения"
+                , Enabled: true
+                );
 
             var res = _validator.TestValidate(template);
             res.ShouldHaveValidationErrorFor(q => q.Name);
@@ -63,7 +66,8 @@ namespace NotificationService.Tests.Dtos
                 Description: Description,
                 Type: "Тип шаблона",
                 Subject: "",
-                Template: "Шаблон сообщения");
+                Template: "Шаблон сообщения"
+                , Enabled: true);
 
             var res = _validator.TestValidate(template);
             res.ShouldHaveValidationErrorFor(q => q.Description);

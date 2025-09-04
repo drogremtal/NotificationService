@@ -2,7 +2,7 @@
 
 namespace NotificationService.Dtos.Validators
 {
-    public class EditTemplateValidator:AbstractValidator<EditTemplateDto>
+    public class EditTemplateValidator:AbstractValidator<EditTemplateRequest>
     {
         public EditTemplateValidator()
         {

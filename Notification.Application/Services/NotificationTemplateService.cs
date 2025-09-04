@@ -41,23 +41,34 @@ namespace NotificationService.Application.Services
 
         public async Task Add(TemplateDto item)
         {
+            item.CreatedDate = DateTime.Now.Date;
+            item.AuthtorCreated = "Guest";
+
             var entity = _mapper.Map<TemplateEntity>(item);
             await _templateRepository.Create(entity);
         }
 
         public async Task Update(Guid id, TemplateDto item)
         {
-            var data = _mapper.Map<TemplateEntity>(item);
+
+            var data = await _templateRepository.GetById(id);
+            data.Id = id;
+            data.Name = item.Name;
+            data.Description = item.Description;
+            data.Type = item.Type;
+            data.Subject = item.Subject;
+            data.Template = item.Template;
+
             await _templateRepository.Update(data);
         }
 
         public async Task SetEnabled(Guid id)
         {
-            var entity = await this.Get(id);
-            entity.UpdatedDate = DateTime.UtcNow;
+            var entity = await _templateRepository.GetById(id);
+            entity.UpdatedDate = DateTime.Now.Date;
             entity.Enabled = !entity.Enabled;
-            var UpdateEntity = _mapper.Map<TemplateEntity>(entity);
-            await _templateRepository.Update(UpdateEntity);
+
+            await _templateRepository.Update(entity);
         }
     }
 }

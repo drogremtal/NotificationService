@@ -32,32 +32,38 @@ namespace NotificationService.Controllers
 
         // GET: api/<AdminController>
         [HttpGet("GetList")]
-        public async Task<List<TemplateResponseDto>> GetList()
+        public async Task<List<TemplateResponse>> GetList()
         {
             var res = await _template.GetList();
-            var list = _mapper.Map<List<TemplateResponseDto>>(res);
+            var list = _mapper.Map<List<TemplateResponse>>(res);
             return list;
         }
 
         // GET api/<AdminController>/5
         [HttpGet("Get/{id}")]
-        public async Task<TemplateResponseDto> Get(Guid id)
+        public async Task<ActionResult<TemplateResponse>> Get(Guid id)
         {
-            var template = await _template.Get(id);
-            var templateDto = _mapper.Map<TemplateResponseDto>(template);
-            return templateDto;
+            try
+            {
+                var template = await _template.Get(id);
+                var templateDto = _mapper.Map<TemplateResponse>(template);
+                return templateDto;
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
         }
 
         // POST api/<AdminController>
         [HttpPost("Add")]
-        public async Task<IActionResult> Post(AddTemplateRequest templateCreateRequest)
+        public async Task<ActionResult> Add(AddTemplateRequest templateCreateRequest)
         {
 
             var result = await _validator.ValidateAsync(templateCreateRequest);
             if (!result.IsValid)
             {
                 result.AddToModelState(this.ModelState);
-
                 return BadRequest(ModelState);
             }
 
@@ -69,25 +75,48 @@ namespace NotificationService.Controllers
 
         // PUT api/<AdminController>/5
         [HttpPut("Update/{id}")]
-        public void Put(Guid id, AddTemplateRequest value)
+        public async Task<ActionResult> Put(Guid id, AddTemplateRequest value)
         {
-            var updateModel = new TemplateDto();
-            _template.Update(id, updateModel);
-
+            try
+            {
+                var updateModel = _mapper.Map<TemplateDto>(value);
+                await _template.Update(id, updateModel);
+                return Ok();
+            }
+            catch (Exception exc)
+            {
+                return BadRequest();
+            }
         }
 
         // DELETE api/<AdminController>/5
         [HttpDelete("Delete/{id}")]
-        public void Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
-            _template.Delete(id);
+            try
+            {
+                await _template.Delete(id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
         }
 
         // DELETE api/<AdminController>/setenabled/5        
         [HttpGet("SetEnabled/{id}")]
-        public void SetEnabled(Guid id)
+        public async Task<ActionResult> SetEnabled(Guid id)
         {
-            _template.Delete(id);
+            try
+            {
+                await _template.SetEnabled(id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
         }
 
     }
