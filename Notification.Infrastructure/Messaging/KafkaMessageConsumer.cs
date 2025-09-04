@@ -48,14 +48,9 @@ namespace NotificationService.Infrastructure.Messaging
                     {
                         var consumeResult = _consumer.Consume(stoppingToken);
 
-                        _logger.LogInformation("Received message from Kafka: {Message}",
-                            consumeResult.Message.Value);
+                        _logger.LogInformation("Received message from Kafka: {Message}",consumeResult.Message.Value);
 
-                        // Обработка сообщения
-                        //await _notificationProcessor.ProcessNotificationAsync(
-                        //    consumeResult.Message.Value,
-                        //    stoppingToken);
-
+         
                         var message = consumeResult.Message.Value;
                         _logger.LogInformation("Processing notification: {Message}", message);
 
