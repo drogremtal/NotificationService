@@ -18,10 +18,10 @@ namespace NotificationService.Controllers
     {
         private readonly INotificationTemplateService _template;
         private readonly ILogger<AdminController> _logger;
-        private readonly IValidator<AddTemplateDto> _validator;
+        private readonly IValidator<AddTemplateRequest> _validator;
 
         private readonly IMapper _mapper;
-        public AdminController(INotificationTemplateService templateService, ILogger<AdminController> logger, IMapper mapper, IValidator<AddTemplateDto> validator)
+        public AdminController(INotificationTemplateService templateService, ILogger<AdminController> logger, IMapper mapper, IValidator<AddTemplateRequest> validator)
         {
             _template = templateService;
             _logger = logger;
@@ -31,8 +31,8 @@ namespace NotificationService.Controllers
 
 
         // GET: api/<AdminController>
-        [HttpGet]
-        public  async Task<List<TemplateResponseDto>> GetList()
+        [HttpGet("GetList")]
+        public async Task<List<TemplateResponseDto>> GetList()
         {
             var res = await _template.GetList();
             var list = _mapper.Map<List<TemplateResponseDto>>(res);
@@ -40,7 +40,7 @@ namespace NotificationService.Controllers
         }
 
         // GET api/<AdminController>/5
-        [HttpGet("{id}")]
+        [HttpGet("Get/{id}")]
         public async Task<TemplateResponseDto> Get(Guid id)
         {
             var template = await _template.Get(id);
@@ -49,8 +49,8 @@ namespace NotificationService.Controllers
         }
 
         // POST api/<AdminController>
-        [HttpPost]
-        public async Task<IActionResult> Post(AddTemplateDto templateCreateRequest)
+        [HttpPost("Add")]
+        public async Task<IActionResult> Post(AddTemplateRequest templateCreateRequest)
         {
 
             var result = await _validator.ValidateAsync(templateCreateRequest);
@@ -62,14 +62,14 @@ namespace NotificationService.Controllers
             }
 
             var create = _mapper.Map<TemplateDto>(templateCreateRequest);
-
+            create.CreatedDate = DateTime.Now;
             await _template.Add(create);
             return Ok();
         }
 
         // PUT api/<AdminController>/5
-        [HttpPut("{id}")]
-        public void Put(Guid id,  AddTemplateDto value)
+        [HttpPut("Update/{id}")]
+        public void Put(Guid id, AddTemplateRequest value)
         {
             var updateModel = new TemplateDto();
             _template.Update(id, updateModel);
@@ -77,12 +77,18 @@ namespace NotificationService.Controllers
         }
 
         // DELETE api/<AdminController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public void Delete(Guid id)
         {
             _template.Delete(id);
         }
 
+        // DELETE api/<AdminController>/setenabled/5        
+        [HttpGet("SetEnabled/{id}")]
+        public void SetEnabled(Guid id)
+        {
+            _template.Delete(id);
+        }
 
     }
 }

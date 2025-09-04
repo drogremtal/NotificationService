@@ -18,9 +18,17 @@ namespace NotificationService.Infrastructure.Data.Configuration
                 .HasMaxLength(250);
             builder.Property(q => q.Type).IsRequired();
             builder.Property(q => q.Template).IsRequired();
+            builder.Property(q => q.Enabled);
+            builder.Property(q => q.CreatedDate).HasColumnType("timestamp(6)");
+            builder.Property(q => q.UpdatedDate).HasColumnType("timestamp(6)");
+            builder.Property(q => q.AuthtorCreated);
+            builder.Property(q => q.AuthtorUpdated);
 
-            builder.HasMany(q=>q.NotificationsCollection)
-                .WithOne(q=>q.Template);
+
+            builder.HasMany(q => q.NotificationsCollection)
+                .WithOne(q => q.Template);
+
+
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Data;
 
 namespace NotificationService.Dtos.Validators
 {
-    public class AddTemplateValidator:AbstractValidator<AddTemplateDto>
+    public class AddTemplateValidator:AbstractValidator<AddTemplateRequest>
     {
         public AddTemplateValidator()
         {

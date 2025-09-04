@@ -50,5 +50,14 @@ namespace NotificationService.Application.Services
             var data = _mapper.Map<TemplateEntity>(item);
             await _templateRepository.Update(data);
         }
+
+        public async Task SetEnabled(Guid id)
+        {
+            var entity = await this.Get(id);
+            entity.UpdatedDate = DateTime.UtcNow;
+            entity.Enabled = !entity.Enabled;
+            var UpdateEntity = _mapper.Map<TemplateEntity>(entity);
+            await _templateRepository.Update(UpdateEntity);
+        }
     }
 }

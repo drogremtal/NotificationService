@@ -9,7 +9,7 @@ namespace NotificationService.Mapper
     {
         public TemplateProfiles()
         {
-            CreateMap<AddTemplateDto, TemplateDto>();
+            CreateMap<AddTemplateRequest, TemplateDto>();
             CreateMap<EditTemplateDto, TemplateDto>();
             CreateMap<TemplateDto, TemplateEntity>();
 

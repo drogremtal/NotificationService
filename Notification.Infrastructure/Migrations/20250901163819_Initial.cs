@@ -19,7 +19,12 @@ namespace NotificationService.Infrastructure.Migrations
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
                     Type = table.Column<string>(type: "text", nullable: false),
-                    Template = table.Column<string>(type: "text", nullable: false)
+                    Template = table.Column<string>(type: "text", nullable: false),
+                    Enabled = table.Column<bool>(type: "boolean", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    AuthtorCreated = table.Column<string>(type: "text", nullable: false),
+                    AuthtorUpdated = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

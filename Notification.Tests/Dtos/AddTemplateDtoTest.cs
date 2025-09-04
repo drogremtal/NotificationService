@@ -7,7 +7,7 @@ using Xunit;
 
 namespace NotificationService.Tests.Dtos
 {
-    [TestSubject(typeof(AddTemplateDto))]
+    [TestSubject(typeof(AddTemplateRequest))]
     public class AddTemplateDtoTest
     {
         private readonly AddTemplateValidator _validator;
@@ -20,13 +20,18 @@ namespace NotificationService.Tests.Dtos
         [Fact]
         public void AddTemplateDto_Valid_AllProperetyValid()
         {
-            var template = new AddTemplateDto(Name: "Шаблон", Description: "Описание шаблона", Type: "Тип шаблона", Template: "Шаблон сообщения");
+            var template = new AddTemplateRequest(
+                Name: "Шаблон",
+                Description: "Описание шаблона",
+                Type: "Тип шаблона",
+                Subject: "",
+                Template: "Шаблон сообщения");
 
 
             var res = _validator.TestValidate(template);
 
             res.ShouldNotHaveAnyValidationErrors();
-            
+
         }
 
         [Theory]
@@ -35,14 +40,15 @@ namespace NotificationService.Tests.Dtos
         public void Name_NotBeEmpty([CanBeNull] string Name)
         {
 
-            var template = new AddTemplateDto(
+            var template = new AddTemplateRequest(
                 Name: Name,
                 Description: "Описание шаблона",
                 Type: "Тип шаблона",
+                Subject: "",
                 Template: "Шаблон сообщения");
 
             var res = _validator.TestValidate(template);
-            res.ShouldHaveValidationErrorFor(q=>q.Name);
+            res.ShouldHaveValidationErrorFor(q => q.Name);
 
         }
 
@@ -52,10 +58,11 @@ namespace NotificationService.Tests.Dtos
         public void Description_NotBeEmpty([CanBeNull] string Description)
         {
 
-            var template = new AddTemplateDto(
+            var template = new AddTemplateRequest(
                 Name: "Шаблон",
                 Description: Description,
                 Type: "Тип шаблона",
+                Subject: "",
                 Template: "Шаблон сообщения");
 
             var res = _validator.TestValidate(template);
