@@ -7,43 +7,38 @@ using System.Text.Json;
 
 namespace NotificationService.Infrastructure.Messaging
 {
-    public class NotificationProcessor : INotificationProcessor
+    public class NotificationProcessor(
+        ILogger<NotificationProcessor> logger,
+        ISmtpEmailService smtpEmailService,
+        INotificationTemplateService notificationTemplateService)
+        : INotificationProcessor
     {
-
-        private readonly ILogger<NotificationProcessor> _logger;
-        private readonly ISmtpEmailService _smtpEmailService;
-        private readonly INotificationTemplateService _notificationTemplateSevice; 
-        public NotificationProcessor(ILogger<NotificationProcessor> logger, ISmtpEmailService smtpEmailService, INotificationTemplateService _notificationTemplateSevice)
-        {
-            _logger = logger;
-            _smtpEmailService = smtpEmailService;
-        }
         public async Task ProcessNotificationAsync(string notification, CancellationToken cancellationToken)
         {
             try
             {
-                _logger.LogInformation("Processing notification: {Message}", notification);
+                logger.LogInformation("Processing notification: {Message}", notification);
 
                 var notificationSendRequest = JsonSerializer.Deserialize<NotificationSendRequest>(notification);
 
                 if (notificationSendRequest != null)
                 {
                     var email = await this.PrepareEmailAsync(notificationSendRequest);
-                    await _smtpEmailService.SendMessage(email);
+                    await smtpEmailService.SendMessage(email);
                 }
 
-                _logger.LogInformation("Notification processed successfully");
+                logger.LogInformation("Notification processed successfully");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error processing notification");
+                logger.LogError(ex, "Error processing notification");
                 throw;
             }
         }
 
         public async Task<EmailNotification> PrepareEmailAsync(NotificationSendRequest notificationSendRequest)
         {
-            var template = await _notificationTemplateSevice.GetTemplateByType(notificationSendRequest.Type);
+            var template = await notificationTemplateService.GetTemplateByType(notificationSendRequest.Type);
 
             if (template == null)
                 throw new ArgumentException($"Template '{notificationSendRequest.Type}' not found");

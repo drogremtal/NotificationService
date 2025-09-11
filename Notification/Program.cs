@@ -42,6 +42,10 @@ builder.AddKafkaConsumer<string, string>("kafka", options =>
     options.Config.EnableAutoCommit = false;
 });
 
+
+builder.Services.AddHostedService<KafkaMessageConsumer>();
+
+
 var app = builder.Build();
 
 

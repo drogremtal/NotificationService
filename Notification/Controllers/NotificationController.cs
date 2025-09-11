@@ -44,8 +44,9 @@ namespace NotificationService.Controllers
             var sendNotificationDto = new SendNotificationMQ()
             {
                 Parameters = notification.Parameters,
-                Title = notification.Title,
-                Recipient = notification.Recipient
+                Subject = notification.Subject,
+                Recipient = notification.Recipient,
+                Type = notification.Type
             };
             await _notificationService.SendNotificationMqAsync(sendNotificationDto);
             return Ok();

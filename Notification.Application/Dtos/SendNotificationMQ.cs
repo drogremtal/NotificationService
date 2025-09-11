@@ -13,10 +13,9 @@ namespace NotificationService.Application.Dtos
         /// from
         /// </summary>
         public string Recipient { get; set; } = string.Empty;
-        public string Title { get; set; } = string.Empty;
+        public string Subject { get; set; } = string.Empty;
         public Dictionary<string,string> Parameters { get; set; }
         public Dictionary<string, object>? Metadata { get; set; }
-        public string? TemplateId { get; set; }
         public int Priority { get; set; } = 1;
         public DateTime? ScheduleFor { get; set; }
 

@@ -4,6 +4,7 @@ using NotificationService.Application.Interface;
 using NotificationService.Infrastructure.Email;
 
 using NotificationService.Infrastructure.Interface;
+using NotificationService.Infrastructure.Messaging;
 using NotificationService.Infrastructure.Repository;
 
 
@@ -19,8 +20,6 @@ namespace NotificationService.Infrastructure
             services.AddScoped<ITemplateRepository, TemplateRepository>();
             services.AddSingleton<ISmtpEmailService, SmtpEmailService>();
      
-
-            //services.AddHostedService<KafkaMessageConsumer>();
 
             return services;
         }

@@ -51,8 +51,10 @@ namespace NotificationService.Application.Services
             {
                 Recipient = sendNotificationDto.Recipient,
                 IsHtml = true,
-                Subject = sendNotificationDto.Title,
+                Subject = sendNotificationDto.Subject,
                 Parameters = sendNotificationDto.Parameters,
+                Type = sendNotificationDto.Type
+
             };
 
            await _messageBus.PushNotification(emailNotification);

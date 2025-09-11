@@ -31,14 +31,7 @@ namespace NotificationService.Infrastructure.Messaging
 
         public async Task PushNotification(NotificationSendRequest notification)
         {
-            var message = new
-            {
-                Recipient = notification.Recipient,
-                Title = notification.Subject,
-                Message = notification.Parameters,
-            };
-
-            var jsonMessage = JsonSerializer.Serialize(message);
+            var jsonMessage = JsonSerializer.Serialize(notification);
 
             await _producer.ProduceAsync(_topic, new Message<string, string> { Value = jsonMessage });
         }
