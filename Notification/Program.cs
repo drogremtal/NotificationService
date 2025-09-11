@@ -37,7 +37,7 @@ builder.Services.AddScoped<IMessageBus, KafkaMessageProducer>();
 builder.AddKafkaProducer<string, string>("kafka");
 builder.AddKafkaConsumer<string, string>("kafka", options =>
 {
-    options.Config.GroupId = "my-consumer-group";
+    options.Config.GroupId = "notification";
     options.Config.AutoOffsetReset = AutoOffsetReset.Earliest;
     options.Config.EnableAutoCommit = false;
 });
