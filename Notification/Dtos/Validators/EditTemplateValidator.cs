@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using NotificationService.Dtos.Template;
 
 namespace NotificationService.Dtos.Validators
 {

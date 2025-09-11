@@ -1,4 +1,4 @@
-﻿namespace NotificationService.Dtos
+﻿namespace NotificationService.Dtos.Template
 {
     public record TemplateResponse(
     Guid Id ,

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Castle.Core.Logging;
 using FluentValidation;
 using FluentValidation.Results;
 using JetBrains.Annotations;
@@ -11,7 +10,7 @@ using Moq;
 using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
 using NotificationService.Controllers;
-using NotificationService.Dtos;
+using NotificationService.Dtos.Template;
 using NotificationService.Mapper;
 using System;
 using System.Threading;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
-using Notification.Infrastructure.Email.Dtos;
-using Notification.Infrastructure.Email.Interface;
+using NotificationService.Application.Dtos;
+using NotificationService.Application.Interface;
 using NotificationService.Infrastructure.Email.Dtos;
 using System.Net;
 using System.Net.Mail;
@@ -41,7 +41,7 @@ namespace NotificationService.Infrastructure.Email
             {
                 From = new MailAddress(_smtpConfig.From),
                 Subject = emailNotification.Subject,
-                Body = emailNotification.Message,
+                Body = emailNotification.Body,
                 IsBodyHtml = emailNotification.IsHtml
             };
 

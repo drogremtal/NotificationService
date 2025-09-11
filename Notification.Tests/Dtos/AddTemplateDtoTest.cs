@@ -1,6 +1,6 @@
 ﻿using FluentValidation.TestHelper;
 using JetBrains.Annotations;
-using NotificationService.Dtos;
+using NotificationService.Dtos.Template;
 using NotificationService.Dtos.Validators;
 using Xunit;
 

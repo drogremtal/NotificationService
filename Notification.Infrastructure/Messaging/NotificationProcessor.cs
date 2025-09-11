@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Notification.Infrastructure.Email.Dtos;
-using Notification.Infrastructure.Email.Interface;
+﻿using Microsoft.Extensions.Logging;
+using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
-using NotificationService.Infrastructure.Email.Dtos;
 using System.Text.Json;
 
-namespace NotificationService.Application.Services
+
+
+namespace NotificationService.Infrastructure.Messaging
 {
     public class NotificationProcessor : INotificationProcessor
     {
@@ -65,7 +64,6 @@ namespace NotificationService.Application.Services
                 Body = body,
                 IsHtml = notificationSendRequest.IsHtml  ,
                 Recipient = notificationSendRequest.Recipient,
-                ReplyTo = notificationSendRequest.ReplyTo
             };
         }
     }

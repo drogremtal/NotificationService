@@ -1,13 +1,8 @@
 ﻿using Confluent.Kafka;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Notification.Infrastructure.Email.Dtos;
-using Notification.Infrastructure.Email.Interface;
-using NotificationService.Infrastructure.Interface;
-using NotificationService.Infrastructure.Messaging.Config;
-using System.Text.Json;
-using static Confluent.Kafka.ConfigPropertyNames;
+using NotificationService.Application.Interface;
+
 
 namespace NotificationService.Infrastructure.Messaging
 {
@@ -60,7 +55,7 @@ namespace NotificationService.Infrastructure.Messaging
            
                             if (message != null)
                             {
-                                await _notificationProcessor.ProcessNotificationAsync(message);
+                                await _notificationProcessor.ProcessNotificationAsync(message, stoppingToken);
                             }
                             _logger.LogInformation("Notification processed successfully");
                             // Подтверждение обработки

@@ -1,6 +1,6 @@
 ﻿namespace NotificationService.Infrastructure.Email.Dtos
 {
-    public class EmailNotification
+    public class EmailNotificationInfra
     {
         public string From { get; set; }
         public string Subject { get; set; }

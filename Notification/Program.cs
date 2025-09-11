@@ -6,6 +6,7 @@ using NotificationService.Application.Services;
 using NotificationService.Infrastructure;
 using NotificationService.Infrastructure.Data;
 using NotificationService.Infrastructure.Email;
+using NotificationService.Infrastructure.Messaging;
 using NotificationService.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,8 +29,10 @@ builder.AddNpgsqlDbContext<NotificationDbContext>("notificationDb");
 builder.Services.Configure<SmtpConfig>(builder.Configuration.GetSection("SmtpConfig"));
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHostedService<MigrationHostedService>();
-
+builder.Services.AddScoped<INotificationProcessor, NotificationProcessor>();
 builder.Services.AddScoped<INotificationTemplateService, NotificationTemplateService>();
+
+builder.Services.AddScoped<IMessageBus, KafkaMessageProducer>();
 
 builder.AddKafkaProducer<string, string>("kafka");
 builder.AddKafkaConsumer<string, string>("kafka", options =>

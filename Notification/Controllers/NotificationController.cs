@@ -24,9 +24,9 @@ namespace NotificationService.Controllers
         public async Task<IActionResult> SendNotification(SendNotificationRequest notification)
         {
 
-            var sendNotificationDto = new SendNotificationDto()
+            var sendNotificationDto = new SendNotification()
             {
-                Message = notification.Message,
+                Body = notification.Message,
                 Title = notification.Title,
                 Recipient = notification.Recipient
             };
@@ -38,12 +38,12 @@ namespace NotificationService.Controllers
         [HttpPost("SendNotificationMq")]
         [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> SendNotificationMq(SendNotificationRequest notification)
+        public async Task<IActionResult> SendNotificationMq(SendNotificationRequestMQ notification)
         {
 
-            var sendNotificationDto = new SendNotificationDto()
+            var sendNotificationDto = new SendNotificationMQ()
             {
-                Message = notification.Message,
+                Parameters = notification.Parameters,
                 Title = notification.Title,
                 Recipient = notification.Recipient
             };

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NotificationService.Application.Dtos
 {
-    public sealed class SendNotificationDto
+    public sealed class SendNotification
     {
         public string Type { get; set; } = string.Empty;
         /// <summary>
@@ -14,7 +14,7 @@ namespace NotificationService.Application.Dtos
         /// </summary>
         public string Recipient { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
-        public string Message { get; set; } = string.Empty;
+        public string Body { get; set; }
         public Dictionary<string, object>? Metadata { get; set; }
         public string? TemplateId { get; set; }
         public int Priority { get; set; } = 1;

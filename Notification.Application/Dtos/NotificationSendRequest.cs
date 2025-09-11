@@ -1,4 +1,4 @@
-﻿namespace NotificationService.Infrastructure.Email.Dtos
+﻿namespace NotificationService.Application.Dtos
 {
 
     /// <summary>

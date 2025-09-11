@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using NotificationService.Application.Dtos;
 using NotificationService.Domain.Entities;
-using NotificationService.Dtos;
+using NotificationService.Dtos.Template;
 
 namespace NotificationService.Mapper
 {

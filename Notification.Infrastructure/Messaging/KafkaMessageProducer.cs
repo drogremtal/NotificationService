@@ -1,9 +1,9 @@
 ﻿using Confluent.Kafka;
-using Microsoft.Extensions.Options;
-using Notification.Infrastructure.Email.Dtos;
-using NotificationService.Infrastructure.Interface;
+using NotificationService.Application.Dtos;
+using NotificationService.Application.Interface;
 using NotificationService.Infrastructure.Messaging.Config;
 using System.Text.Json;
+
 
 namespace NotificationService.Infrastructure.Messaging
 {
@@ -29,13 +29,13 @@ namespace NotificationService.Infrastructure.Messaging
 
         }
 
-        public async Task PushNotification(EmailNotification notification)
+        public async Task PushNotification(NotificationSendRequest notification)
         {
             var message = new
             {
                 Recipient = notification.Recipient,
                 Title = notification.Subject,
-                Message = notification.Message,
+                Message = notification.Parameters,
             };
 
             var jsonMessage = JsonSerializer.Serialize(message);
