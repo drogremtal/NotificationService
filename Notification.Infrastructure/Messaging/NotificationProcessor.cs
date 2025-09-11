@@ -2,13 +2,7 @@
 using Notification.Infrastructure.Email.Dtos;
 using Notification.Infrastructure.Email.Interface;
 using NotificationService.Infrastructure.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace NotificationService.Infrastructure.Messaging
 {

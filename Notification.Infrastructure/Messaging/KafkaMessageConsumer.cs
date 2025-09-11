@@ -42,27 +42,32 @@ namespace NotificationService.Infrastructure.Messaging
 
             try
             {
-                while (!stoppingToken.IsCancellationRequested)
+                while (_consumer is not null && !stoppingToken.IsCancellationRequested)
+                
                 {
                     try
                     {
-                        var consumeResult = _consumer.Consume(stoppingToken);
+                        var consumeResult = _consumer.Consume(100);
 
-                        _logger.LogInformation("Received message from Kafka: {Message}",consumeResult.Message.Value);
+                        if (consumeResult != null)
+                        {
 
-         
-                        var message = consumeResult.Message.Value;
-                        _logger.LogInformation("Processing notification: {Message}", message);
-
-                        EmailNotification emailNotification = JsonSerializer.Deserialize<EmailNotification>(message);
-
-                        await _smtpEmailService.SendMessage(emailNotification);
-
-                        _logger.LogInformation("Notification processed successfully");
+                            _logger.LogInformation("Received message from Kafka: {Message}", consumeResult.Message.Value);
 
 
-                        // Подтверждение обработки
-                        _consumer.Commit(consumeResult);
+                            var message = consumeResult.Message.Value;
+                            _logger.LogInformation("Processing notification: {Message}", message);
+
+                            EmailNotification emailNotification = JsonSerializer.Deserialize<EmailNotification>(message);
+
+                            await _smtpEmailService.SendMessage(emailNotification);
+
+                            _logger.LogInformation("Notification processed successfully");
+
+
+                            // Подтверждение обработки
+                            _consumer.Commit(consumeResult);
+                        }
                     }
                     catch (ConsumeException ex)
                     {

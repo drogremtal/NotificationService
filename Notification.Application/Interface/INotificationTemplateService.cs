@@ -16,5 +16,6 @@ namespace NotificationService.Application.Interface
         Task SetEnabled(Guid id);
         Task Add(TemplateDto item);
         Task Update(Guid id, TemplateDto item);
+        Task<TemplateDto> GetTemplateByType(string type);
     }
 }

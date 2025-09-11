@@ -38,6 +38,7 @@ namespace NotificationService.Infrastructure.Email
 
         private MailMessage CreateMailMessage(EmailNotification emailNotification)
         {
+
             var message = new MailMessage
             {
                 From = new MailAddress(_smtpConfig.From),

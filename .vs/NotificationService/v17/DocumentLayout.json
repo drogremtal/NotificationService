@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|solutionrelative:notification.infrastructure\\messaging\\kafkamessageconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|d:\\project\\notificationservice\\notification.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E254551-F0CE-4CB1-B12A-F727ED345F20}|Notification.Infrastructure\\NotificationService.Infrastructure.csproj|solutionrelative:notification.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|d:\\project\\notificationservice\\notification\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1259202-69CC-88FF-2F90-403FB1C5D6E4}|Notification\\NotificationService.csproj|solutionrelative:notification\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|d:\\project\\notificationservice\\notification.application\\services\\notificationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|solutionrelative:notification.application\\services\\notificationtemplateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|d:\\project\\notificationservice\\notification.application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B90A721-6544-44D4-AB69-956568047C81}|Notification.Application\\NotificationService.Application.csproj|solutionrelative:notification.application\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 68,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "KafkaMessageConsumer.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
-              "RelativeDocumentMoniker": "Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
-              "RelativeToolTip": "Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAkwDYAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T15:45:56.125Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -295,15 +290,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Infrastructure\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Notification.Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "D:\\Project\\NotificationService\\Notification.Infrastructure\\DependencyInjection.cs",
-              "RelativeToolTip": "Notification.Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "NotificationTemplateService.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Application\\Services\\NotificationTemplateService.cs",
+              "RelativeDocumentMoniker": "Notification.Application\\Services\\NotificationTemplateService.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Application\\Services\\NotificationTemplateService.cs",
+              "RelativeToolTip": "Notification.Application\\Services\\NotificationTemplateService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAIAwwFEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T15:45:48.638Z",
+              "WhenOpened": "2025-09-10T16:15:34.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Application\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "Notification.Application\\Services\\NotificationService.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Application\\Services\\NotificationService.cs",
+              "RelativeToolTip": "Notification.Application\\Services\\NotificationService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwEQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:10:03.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Notification\\Controllers\\NotificationController.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "Notification\\Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:08:59.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KafkaMessageConsumer.cs",
+              "DocumentMoniker": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
+              "RelativeDocumentMoniker": "Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
+              "ToolTip": "D:\\Project\\NotificationService\\Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
+              "RelativeToolTip": "Notification.Infrastructure\\Messaging\\KafkaMessageConsumer.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAD4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:08:36.343Z",
               "EditorCaption": ""
             }
           ]

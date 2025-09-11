@@ -41,5 +41,16 @@ namespace NotificationService.Infrastructure.Repository
         {
             return await _dbContext.Templates.Where(q => q.Id == id).FirstOrDefaultAsync();
         }
+
+
+        /// <summary>
+        /// Получаем шаблон по типу 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public async Task<TemplateEntity>  GetByIdAsync(string type)
+        {
+            return await _dbContext.Templates.Where(q => q.Type == type).FirstOrDefaultAsync();
+        }
     }
 }

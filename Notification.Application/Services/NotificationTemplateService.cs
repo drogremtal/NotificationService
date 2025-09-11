@@ -70,5 +70,16 @@ namespace NotificationService.Application.Services
 
             await _templateRepository.Update(entity);
         }
+
+
+        public async Task<TemplateDto> GetTemplateByType(string type)
+        {
+            var entity = await _templateRepository.GetByIdAsync(type);
+
+            var data = _mapper.Map<TemplateDto>(entity);
+
+            return data;
+        }
+
     }
 }
