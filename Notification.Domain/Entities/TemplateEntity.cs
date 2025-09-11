@@ -21,7 +21,7 @@ namespace NotificationService.Domain.Entities
         public string? AuthtorUpdated { get; set; }
 
 
-        public ICollection<NotificationEntity> NotificationsCollection { get; set; }
+        public ICollection<NotificationEntity>? NotificationsCollection { get; set; }
 
     }
 }

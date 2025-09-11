@@ -42,7 +42,7 @@ namespace NotificationService.Infrastructure.Messaging
 
             try
             {
-                while (_consumer is not null && !stoppingToken.IsCancellationRequested)
+                while (!stoppingToken.IsCancellationRequested)
                 
                 {
                     try
@@ -51,20 +51,19 @@ namespace NotificationService.Infrastructure.Messaging
 
                         if (consumeResult != null)
                         {
-
                             _logger.LogInformation("Received message from Kafka: {Message}", consumeResult.Message.Value);
 
-
                             var message = consumeResult.Message.Value;
+                            
                             _logger.LogInformation("Processing notification: {Message}", message);
 
-                            EmailNotification emailNotification = JsonSerializer.Deserialize<EmailNotification>(message);
+                            var emailNotification = JsonSerializer.Deserialize<EmailNotification>(message);
 
-                            await _smtpEmailService.SendMessage(emailNotification);
-
+                            if (emailNotification != null)
+                            {
+                                await _smtpEmailService.SendMessage(emailNotification);
+                            }
                             _logger.LogInformation("Notification processed successfully");
-
-
                             // Подтверждение обработки
                             _consumer.Commit(consumeResult);
                         }

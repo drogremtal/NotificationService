@@ -11,6 +11,6 @@
         public DateTime? SentAt { get; set; }
         public string Metadata { get; set; } = string.Empty;
 
-        public TemplateEntity Template { get; set; }
+        public TemplateEntity? Template { get; set; }
     }
 }
