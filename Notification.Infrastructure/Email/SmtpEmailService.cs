@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Notification.Infrastructure.Email.Dtos;
 using Notification.Infrastructure.Email.Interface;
+using NotificationService.Infrastructure.Email.Dtos;
 using System.Net;
 using System.Net.Mail;
 
@@ -27,11 +28,8 @@ namespace NotificationService.Infrastructure.Email
 
         public async Task<bool> SendMessage(EmailNotification emailNotification)
         {
-
             var mailMessage = CreateMailMessage(emailNotification);
-
             await _smtpClient.SendMailAsync(mailMessage);
-
             return true;
         }
 

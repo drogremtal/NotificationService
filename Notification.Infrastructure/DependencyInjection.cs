@@ -19,7 +19,7 @@ namespace NotificationService.Infrastructure
             services.AddSingleton<ISmtpEmailService, SmtpEmailService>();
             services.AddScoped<IMessageBus, KafkaMessageProducer>();
             services.AddSingleton<INotificationProcessor, NotificationProcessor>();
-            services.AddHostedService<KafkaMessageConsumer>();
+            //services.AddHostedService<KafkaMessageConsumer>();
 
             return services;
         }

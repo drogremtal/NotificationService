@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotificationService.Infrastructure.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NotificationService.Infrastructure.Migrations
 {
     [DbContext(typeof(NotificationDbContext))]
-    partial class NotificationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250911094839_Initial22")]
+    partial class Initial22
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace NotificationService.Infrastructure.Migrations
                     b.Property<DateTime?>("SentAt")
                         .HasColumnType("timestamp(6)");
 
-                    b.Property<Guid?>("TemplateId")
+                    b.Property<Guid>("TemplateId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Title")
@@ -167,7 +170,9 @@ namespace NotificationService.Infrastructure.Migrations
                 {
                     b.HasOne("NotificationService.Domain.Entities.TemplateEntity", "Template")
                         .WithMany("NotificationsCollection")
-                        .HasForeignKey("TemplateId");
+                        .HasForeignKey("TemplateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Template");
                 });

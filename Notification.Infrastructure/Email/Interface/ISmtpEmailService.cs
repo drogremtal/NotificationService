@@ -1,4 +1,5 @@
 ﻿using Notification.Infrastructure.Email.Dtos;
+using NotificationService.Infrastructure.Email.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

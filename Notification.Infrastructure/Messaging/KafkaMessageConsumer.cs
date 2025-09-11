@@ -19,18 +19,18 @@ namespace NotificationService.Infrastructure.Messaging
 
         private readonly ILogger<KafkaMessageConsumer> _logger;
 
-        //private readonly INotificationProcessor _notificationProcessor;
+        private readonly INotificationProcessor _notificationProcessor;
 
         public KafkaMessageConsumer(IConsumer<string, string> consumer, ISmtpEmailService smtpEmailService
             , ILogger<KafkaMessageConsumer> logger
-            //,INotificationProcessor notificationProcessor
+            ,INotificationProcessor notificationProcessor
             )
         {
             _smtpEmailService = smtpEmailService;
             _consumer = consumer;
             _topic = "notifications_send";
             _logger = logger;  
-            //_notificationProcessor = notificationProcessor;
+            _notificationProcessor = notificationProcessor;
 
         }
 
@@ -47,7 +47,7 @@ namespace NotificationService.Infrastructure.Messaging
                 {
                     try
                     {
-                        var consumeResult = _consumer.Consume(100);
+                        var consumeResult = _consumer.Consume(stoppingToken);
 
                         if (consumeResult != null)
                         {
@@ -57,11 +57,10 @@ namespace NotificationService.Infrastructure.Messaging
                             
                             _logger.LogInformation("Processing notification: {Message}", message);
 
-                            var emailNotification = JsonSerializer.Deserialize<EmailNotification>(message);
-
-                            if (emailNotification != null)
+           
+                            if (message != null)
                             {
-                                await _smtpEmailService.SendMessage(emailNotification);
+                                await _notificationProcessor.ProcessNotificationAsync(message);
                             }
                             _logger.LogInformation("Notification processed successfully");
                             // Подтверждение обработки

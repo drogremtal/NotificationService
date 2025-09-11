@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Infrastructure.Email.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace NotificationService.Infrastructure.Interface
 {
     public interface INotificationProcessor
     {
-        Task ProcessNotificationAsync(string message, CancellationToken cancellationToken);
+        Task ProcessNotificationAsync(string message,CancellationToken token);
+
+
+        Task<string> PrepareEmailAsync(NotificationSendRequest emailNotification);
     }
 }
