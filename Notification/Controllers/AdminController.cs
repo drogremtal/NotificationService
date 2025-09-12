@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Confluent.Kafka;
 using FluentValidation;
-using FluentValidation.Results;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;

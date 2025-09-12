@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
 using NotificationService.Dtos.Template;
-using System.Data;
 
 namespace NotificationService.Dtos.Validators
 {
-    public class AddTemplateValidator:AbstractValidator<AddTemplateRequest>
+    public class AddTemplateValidator : AbstractValidator<AddTemplateRequest>
     {
         public AddTemplateValidator()
         {

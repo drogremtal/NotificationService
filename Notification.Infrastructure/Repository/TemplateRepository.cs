@@ -48,7 +48,7 @@ namespace NotificationService.Infrastructure.Repository
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public async Task<TemplateEntity>  GetByIdAsync(string type)
+        public async Task<TemplateEntity>  GetByType(string type)
         {
             return await _dbContext.Templates.Where(q => q.Type == type).FirstOrDefaultAsync();
         }
