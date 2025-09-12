@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Confluent.Kafka;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -7,8 +8,6 @@ using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
 using NotificationService.Dtos.Template;
 using NotificationService.Extensions;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace NotificationService.Controllers
 {
@@ -32,6 +31,8 @@ namespace NotificationService.Controllers
 
         // GET: api/<AdminController>
         [HttpGet("GetList")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<List<TemplateResponse>> GetList()
         {
             var res = await _template.GetList();
@@ -41,6 +42,8 @@ namespace NotificationService.Controllers
 
         // GET api/<AdminController>/5
         [HttpGet("Get/{id}")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<TemplateResponse>> Get(Guid id)
         {
             try
@@ -57,6 +60,8 @@ namespace NotificationService.Controllers
 
         // POST api/<AdminController>
         [HttpPost("Add")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Add(AddTemplateRequest templateCreateRequest)
         {
 
@@ -75,6 +80,8 @@ namespace NotificationService.Controllers
 
         // PUT api/<AdminController>/5
         [HttpPut("Update/{id}")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Put(Guid id, AddTemplateRequest value)
         {
             try
@@ -91,6 +98,8 @@ namespace NotificationService.Controllers
 
         // DELETE api/<AdminController>/5
         [HttpDelete("Delete/{id}")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Delete(Guid id)
         {
             try
@@ -106,6 +115,8 @@ namespace NotificationService.Controllers
 
         // DELETE api/<AdminController>/setenabled/5        
         [HttpGet("SetEnabled/{id}")]
+        [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> SetEnabled(Guid id)
         {
             try

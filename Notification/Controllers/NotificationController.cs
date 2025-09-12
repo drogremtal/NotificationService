@@ -38,7 +38,7 @@ namespace NotificationService.Controllers
         [HttpPost("SendNotificationMq")]
         [ProducesResponseType(typeof(OkResult), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> SendNotificationMq(SendNotificationRequestMQ notification)
+        public async Task<IActionResult> SendNotificationMq(SendNotificationRequestMq notification)
         {
 
             var sendNotificationDto = new SendNotificationMQ()

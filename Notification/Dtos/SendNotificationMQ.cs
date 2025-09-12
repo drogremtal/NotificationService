@@ -1,11 +1,17 @@
 ﻿namespace NotificationService.Dtos
 {
-    public sealed class SendNotificationRequestMQ
-    {
-        public string Recipient { get; set; } = string.Empty;
-        public string Subject { get; set; } = string.Empty;
-        public string Type { get; set; } = string.Empty;
-        public Dictionary<string, string> Parameters { get; set; }
 
-    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Recipient"></param>
+    /// <param name="Subject"></param>
+    /// <param name="Type"></param>
+    /// <param name="Parameters"></param>
+    public record SendNotificationRequestMq(
+        string Recipient,
+        string Subject,
+        string Type,
+        Dictionary<string, string> Parameters);
 }
+

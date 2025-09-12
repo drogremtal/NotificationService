@@ -1,10 +1,10 @@
 ﻿namespace NotificationService.Dtos
-{
-    public sealed class SendNotificationRequest
-    {
-        public string Recipient { get; set; } = string.Empty;
-        public string Title { get; set; } = string.Empty;
-        public string Message { get; set; }
-
-    }
+{  
+    /// <summary>
+    /// Для отправки сообщения
+    /// </summary>
+    /// <param name="Recipient"></param>
+    /// <param name="Title"></param>
+    /// <param name="Message"></param>
+    public record SendNotificationRequest(string Recipient, string Title, string Message);
 }
