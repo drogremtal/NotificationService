@@ -19,11 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Tests", "Notification.Tests\NotificationService.Tests.csproj", "{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2BE81011-1139-450A-92CE-97550A51D1F7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Domain", "Notification.Domain\NotificationService.Domain.csproj", "{C8A32A84-A5F3-4B92-A405-8901ED793BE6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService.Infrastructure", "Notification.Infrastructure\NotificationService.Infrastructure.csproj", "{8E254551-F0CE-4CB1-B12A-F727ED345F20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A594A8CD-2334-42EB-9839-968441629D2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +62,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0A9F78D-90B5-E95D-A08E-FB44A9E09C2E} = {A594A8CD-2334-42EB-9839-968441629D2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F26326BD-2D7B-4B34-AD94-6C7E65E6CA04}

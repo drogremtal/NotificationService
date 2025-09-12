@@ -18,7 +18,7 @@ namespace NotificationService
             {
                 var service = scope.ServiceProvider;
                 var context = service.GetRequiredService<NotificationDbContext>();
-                await context.Database.MigrateAsync();
+                await context.Database.MigrateAsync(cancellationToken: cancellationToken);
             }
 
         }

@@ -1,6 +1,6 @@
 ﻿using NotificationService.Domain.Entities;
 
-namespace NotificationService.Domain.Interface
+namespace NotificationService.Infrastructure.Interface
 {
     public interface INotificationRepository
     {

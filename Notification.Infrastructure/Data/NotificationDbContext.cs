@@ -9,10 +9,11 @@ namespace NotificationService.Infrastructure.Data
     {
         public DbSet<NotificationEntity> Notifications { get; set; }
 
-
+        public DbSet<TemplateEntity> Templates { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new NotificationConfiguration());
+            modelBuilder.ApplyConfiguration(new TemplateEntityConfiguration());
         }
     }
 }

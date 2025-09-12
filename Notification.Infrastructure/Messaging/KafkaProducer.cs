@@ -1,19 +1,19 @@
 ﻿using Confluent.Kafka;
-using Microsoft.Extensions.Options;
-using Notification.Infrastructure.Email.Dtos;
-using NotificationService.Infrastructure.Interface;
+using NotificationService.Application.Dtos;
+using NotificationService.Application.Interface;
 using NotificationService.Infrastructure.Messaging.Config;
 using System.Text.Json;
 
+
 namespace NotificationService.Infrastructure.Messaging
 {
-    public class KafkaMessageProducer : IMessageBus
+    public class KafkaProducer : IMessageBrokerProducer
     {
         private readonly IProducer<string, string> _producer;
         private readonly string _topic;
         private readonly KafkaProducerConfig _kafkaProducerConfig;
 
-        public KafkaMessageProducer(IProducer<string, string> services)
+        public KafkaProducer(IProducer<string, string> services)
         {
             _producer = services;
 
@@ -29,16 +29,9 @@ namespace NotificationService.Infrastructure.Messaging
 
         }
 
-        public async Task PushNotification(EmailNotification notification)
+        public async Task PushNotification(NotificationSendRequest notification)
         {
-            var message = new
-            {
-                Recipient = notification.Recipient,
-                Title = notification.Subject,
-                Message = notification.Message,
-            };
-
-            var jsonMessage = JsonSerializer.Serialize(message);
+            var jsonMessage = JsonSerializer.Serialize(notification);
 
             await _producer.ProduceAsync(_topic, new Message<string, string> { Value = jsonMessage });
         }

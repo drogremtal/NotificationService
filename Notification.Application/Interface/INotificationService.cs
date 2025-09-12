@@ -4,7 +4,7 @@ namespace NotificationService.Application.Interface
 {
     public interface INotificationService
     {
-        Task SendNotificationAsync(SendNotificationDto sendNotificationDto);
-        Task SendNotificationMqAsync(SendNotificationDto sendNotificationDto);
+        Task SendNotificationAsync(SendNotification sendNotificationDto);
+        Task SendNotificationMqAsync(SendNotificationMQ sendNotificationDto);
     }
 }

@@ -22,7 +22,7 @@ namespace NotificationService.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Notification.Domain.Entities.NotificationEntity", b =>
+            modelBuilder.Entity("NotificationService.Domain.Entities.NotificationEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,6 +48,9 @@ namespace NotificationService.Infrastructure.Migrations
                     b.Property<DateTime?>("SentAt")
                         .HasColumnType("timestamp(6)");
 
+                    b.Property<Guid?>("TemplateId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -59,7 +62,119 @@ namespace NotificationService.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("TemplateId");
+
                     b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("NotificationService.Domain.Entities.TemplateEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AuthtorCreated")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("AuthtorUpdated")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Template")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.ToTable("Templates");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("a65865e1-a1c0-42cf-b7fd-b7c9480f236a"),
+                            AuthtorCreated = "Test",
+                            AuthtorUpdated = "",
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Описание начльного шаблона",
+                            Enabled = true,
+                            Name = "Начальный шаблон",
+                            Subject = "Добро пожаловать!",
+                            Template = "<html> \r\n                            <body>\r\n                            <h1>Добро пожаловать, {{UserName}} !</h1>\r\n                        <p>Ваш email: {{Email}}</p>\r\n                        <p>Дата регистрации: {{RegistrationDate}}</p>\r\n                        <p><a href='{{ActivationLink}}'>Активировать аккаунт</a></p>\r\n                    </body>\r\n                </html>",
+                            Type = "Authorization"
+                        },
+                        new
+                        {
+                            Id = new Guid("b0669b35-8efc-4eb5-bf1c-702eae5e91ae"),
+                            AuthtorCreated = "Test",
+                            AuthtorUpdated = "",
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Описание начльного шаблона",
+                            Enabled = true,
+                            Name = "Начальный шаблон",
+                            Subject = "Добро пожаловать!",
+                            Template = "<html> \r\n                            <body>\r\n                            <h1>Добро пожаловать, {{UserName}} !</h1>\r\n                        <p>Ваш email: {{Email}}</p>\r\n                        <p>Дата регистрации: {{RegistrationDate}}</p>\r\n                        <p><a href='{{ActivationLink}}'>Активировать аккаунт</a></p>\r\n                    </body>\r\n                </html>",
+                            Type = "Authorization"
+                        },
+                        new
+                        {
+                            Id = new Guid("fd17ed09-6805-48dc-9f1f-ad89146979a9"),
+                            AuthtorCreated = "Test",
+                            AuthtorUpdated = "",
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Описание начльного шаблона",
+                            Enabled = true,
+                            Name = "Начальный шаблон",
+                            Subject = "Добро пожаловать!",
+                            Template = "<html> \r\n                            <body>\r\n                            <h1>Добро пожаловать, {{UserName}} !</h1>\r\n                        <p>Ваш email: {{Email}}</p>\r\n                        <p>Дата регистрации: {{RegistrationDate}}</p>\r\n                        <p><a href='{{ActivationLink}}'>Активировать аккаунт</a></p>\r\n                    </body>\r\n                </html>",
+                            Type = "Authorization"
+                        });
+                });
+
+            modelBuilder.Entity("NotificationService.Domain.Entities.NotificationEntity", b =>
+                {
+                    b.HasOne("NotificationService.Domain.Entities.TemplateEntity", "Template")
+                        .WithMany("NotificationsCollection")
+                        .HasForeignKey("TemplateId");
+
+                    b.Navigation("Template");
+                });
+
+            modelBuilder.Entity("NotificationService.Domain.Entities.TemplateEntity", b =>
+                {
+                    b.Navigation("NotificationsCollection");
                 });
 #pragma warning restore 612, 618
         }

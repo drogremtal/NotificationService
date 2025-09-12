@@ -1,12 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NotificationService.Domain.Entities;
-using NotificationService.Domain.Interface;
+﻿using NotificationService.Domain.Entities;
 using NotificationService.Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NotificationService.Infrastructure.Interface;
 
 namespace NotificationService.Infrastructure.Repository
 {
@@ -34,9 +28,10 @@ namespace NotificationService.Infrastructure.Repository
            await _dbContext.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(NotificationEntity notification)
+        public async Task UpdateAsync(NotificationEntity notification)
         {
-            throw new NotImplementedException();
+            _dbContext.Update(notification);
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task MarkAsReadAsync(Guid id)

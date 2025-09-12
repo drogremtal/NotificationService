@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Notification.Domain\NotificationService.Domain.csproj" />
-    <ProjectReference Include="..\Notification.Infrastructure\NotificationService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -30,14 +30,14 @@ namespace Notification.Tests.Controllers
         public async Task SendNotification_WithValidRequest_ReturnsOkResult()
         {
             //arrange
-            SendNotificationRequest sendNotificationRequest = new SendNotificationRequest()
+            var sendNotificationRequest = new SendNotificationRequest()
             {
                 Message = "Message",
                 Recipient = "test@mail.ru",
                 Title = "title"
             };
 
-            _mockNotificationService.Setup(q => q.SendNotificationAsync(It.IsAny<SendNotificationDto>()))
+            _mockNotificationService.Setup(q => q.SendNotificationAsync(It.IsAny<SendNotification>()))
                 .Returns(Task.CompletedTask);
 
             //assert

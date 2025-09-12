@@ -12,17 +12,16 @@ namespace NotificationService.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<DateTime>(
-                name: "SentAt",
-                table: "Notifications",
+                name: "UpdatedDate",
+                table: "Templates",
                 type: "timestamp(6) without time zone",
-                nullable: true,
+                nullable: false,
                 oldClrType: typeof(DateTime),
-                oldType: "timestamp with time zone",
-                oldNullable: true);
+                oldType: "timestamp with time zone");
 
             migrationBuilder.AlterColumn<DateTime>(
-                name: "CreatedAt",
-                table: "Notifications",
+                name: "CreatedDate",
+                table: "Templates",
                 type: "timestamp(6) without time zone",
                 nullable: false,
                 oldClrType: typeof(DateTime),
@@ -33,17 +32,16 @@ namespace NotificationService.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<DateTime>(
-                name: "SentAt",
-                table: "Notifications",
+                name: "UpdatedDate",
+                table: "Templates",
                 type: "timestamp with time zone",
-                nullable: true,
+                nullable: false,
                 oldClrType: typeof(DateTime),
-                oldType: "timestamp(6) without time zone",
-                oldNullable: true);
+                oldType: "timestamp(6) without time zone");
 
             migrationBuilder.AlterColumn<DateTime>(
-                name: "CreatedAt",
-                table: "Notifications",
+                name: "CreatedDate",
+                table: "Templates",
                 type: "timestamp with time zone",
                 nullable: false,
                 oldClrType: typeof(DateTime),

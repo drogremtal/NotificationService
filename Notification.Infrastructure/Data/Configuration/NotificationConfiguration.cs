@@ -8,8 +8,8 @@ namespace NotificationService.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<NotificationEntity> builder)
         {
-
             builder.HasKey(n => n.Id);
+            builder.HasIndex(q => q.Id).IsUnique();
             builder.Property(n => n.Title).HasMaxLength(150).IsRequired();
             builder.Property(n=>n.Message).HasMaxLength(500).IsRequired();
             builder.Property(n => n.Recipient).HasMaxLength(100).IsRequired();
@@ -18,8 +18,7 @@ namespace NotificationService.Infrastructure.Data.Configuration
             builder.Property(n => n.SentAt).HasColumnType("timestamp(6)");
             builder.Property(n => n.Metadata);
 
-
-
+            builder.HasOne(q => q.Template).WithMany(q=>q.NotificationsCollection);
         }
     }
 }

@@ -21,7 +21,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Notification.Domain\NotificationService.Domain.csproj" />
-    <ProjectReference Include="..\Notification.Domain\NotificationService.Domain.csproj" />
+    <ProjectReference Include="..\Notification.Application\NotificationService.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Email\Interface\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
