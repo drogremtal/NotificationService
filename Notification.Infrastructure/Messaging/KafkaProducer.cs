@@ -7,13 +7,13 @@ using System.Text.Json;
 
 namespace NotificationService.Infrastructure.Messaging
 {
-    public class KafkaMessageProducer : IMessageBus
+    public class KafkaProducer : IMessageBrokerProducer
     {
         private readonly IProducer<string, string> _producer;
         private readonly string _topic;
         private readonly KafkaProducerConfig _kafkaProducerConfig;
 
-        public KafkaMessageProducer(IProducer<string, string> services)
+        public KafkaProducer(IProducer<string, string> services)
         {
             _producer = services;
 

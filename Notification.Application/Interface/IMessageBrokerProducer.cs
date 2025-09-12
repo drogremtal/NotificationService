@@ -2,7 +2,7 @@
 
 namespace NotificationService.Application.Interface
 {
-    public interface IMessageBus
+    public interface IMessageBrokerProducer
     {
         Task PushNotification(NotificationSendRequest notification);
     }

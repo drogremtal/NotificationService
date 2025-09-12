@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Email\Interface\" />
-    <Folder Include="Interface\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

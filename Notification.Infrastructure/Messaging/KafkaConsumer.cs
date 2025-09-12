@@ -2,10 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
-using System;
-using System.Text.Json;
 
 
 namespace NotificationService.Infrastructure.Messaging

@@ -32,7 +32,7 @@ builder.Services.AddHostedService<MigrationHostedService>();
 builder.Services.AddScoped<INotificationProcessor, NotificationProcessor>();
 builder.Services.AddScoped<INotificationTemplateService, NotificationTemplateService>();
 
-builder.Services.AddScoped<IMessageBus, KafkaMessageProducer>();
+builder.Services.AddScoped<IMessageBrokerProducer, KafkaProducer>();
 
 builder.AddKafkaProducer<string, string>("kafka");
 builder.AddKafkaConsumer<string, string>("kafka", options =>

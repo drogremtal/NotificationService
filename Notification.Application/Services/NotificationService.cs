@@ -9,9 +9,9 @@ namespace NotificationService.Application.Services
     {
         private readonly INotificationRepository _notificationRepository;
         private readonly ISmtpEmailService _smtpEmailService;
-        private readonly IMessageBus _messageBus;
+        private readonly IMessageBrokerProducer _messageBus;
 
-        public NotificationAppService(INotificationRepository notificationRepository, ISmtpEmailService smtpEmailService, IMessageBus messageBus)
+        public NotificationAppService(INotificationRepository notificationRepository, ISmtpEmailService smtpEmailService, IMessageBrokerProducer messageBus)
         {
             _notificationRepository = notificationRepository;
             _smtpEmailService = smtpEmailService;
