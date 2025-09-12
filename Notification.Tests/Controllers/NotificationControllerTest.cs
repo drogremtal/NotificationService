@@ -1,6 +1,5 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Controllers;
 using Moq;
 using NotificationService.Application.Dtos;
 using NotificationService.Application.Interface;
@@ -9,7 +8,7 @@ using NotificationService.Dtos;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Notification.Tests.Controllers
+namespace NotificationService.Tests.Controllers
 {
     [TestSubject(typeof(NotificationController))]
     public class NotificationControllerTest
@@ -29,13 +28,9 @@ namespace Notification.Tests.Controllers
         [Fact]
         public async Task SendNotification_WithValidRequest_ReturnsOkResult()
         {
-            //arrange
-            var sendNotificationRequest = new SendNotificationRequest()
-            {
-                Message = "Message",
-                Recipient = "test@mail.ru",
-                Title = "title"
-            };
+            //arrange                                              
+            var sendNotificationRequest =
+                new SendNotificationRequest(Recipient: "test@mail.ru", Subject: "title", Message: "Message");
 
             _mockNotificationService.Setup(q => q.SendNotificationAsync(It.IsAny<SendNotification>()))
                 .Returns(Task.CompletedTask);

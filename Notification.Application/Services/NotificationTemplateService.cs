@@ -74,7 +74,7 @@ namespace NotificationService.Application.Services
 
         public async Task<TemplateDto> GetTemplateByType(string type)
         {
-            var entity = await _templateRepository.GetByIdAsync(type);
+            var entity = await _templateRepository.GetByType(type);
 
             var data = _mapper.Map<TemplateDto>(entity);
 

@@ -14,6 +14,6 @@ namespace NotificationService.Infrastructure.Interface
         Task<TemplateEntity> GetById(Guid id);
         Task<IEnumerable<TemplateEntity>> GetAll();
         Task Update(TemplateEntity entity);
-        Task<TemplateEntity> GetByIdAsync(string type);
+        Task<TemplateEntity> GetByType(string type);
     }
 }

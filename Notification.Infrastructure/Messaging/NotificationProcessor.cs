@@ -43,6 +43,11 @@ namespace NotificationService.Infrastructure.Messaging
             if (template == null)
                 throw new ArgumentException($"Template '{notificationSendRequest.Type}' not found");
 
+            if (template.Enabled)
+            {
+                throw new Exception("The template is disabled");
+            }
+
             string subject = template.Subject;
             string body = template.Template;
 
@@ -54,10 +59,10 @@ namespace NotificationService.Infrastructure.Messaging
 
             return new EmailNotification
             {
-               
+
                 Subject = subject,
                 Body = body,
-                IsHtml = notificationSendRequest.IsHtml  ,
+                IsHtml = notificationSendRequest.IsHtml,
                 Recipient = notificationSendRequest.Recipient,
             };
         }

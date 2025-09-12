@@ -149,7 +149,7 @@ namespace NotificationService.Tests.Controllers
             _template.Setup(q => q.Get(It.IsAny<Guid>())).ThrowsAsync(new Exception("Ошибка"));
             var res = await adminController.Get(id);
 
-            Assert.IsType<BadRequest>(res);
+            Assert.IsType<BadRequestResult>(res);
 
 
         }

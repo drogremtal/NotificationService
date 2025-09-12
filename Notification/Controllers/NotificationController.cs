@@ -27,7 +27,7 @@ namespace NotificationService.Controllers
             var sendNotificationDto = new SendNotification()
             {
                 Body = notification.Message,
-                Title = notification.Title,
+                Title = notification.Subject,
                 Recipient = notification.Recipient
             };
             await _notificationService.SendNotificationAsync(sendNotificationDto);
