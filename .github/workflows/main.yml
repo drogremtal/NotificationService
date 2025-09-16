@@ -23,11 +23,11 @@ jobs:
         run: dotnet restore ./NotificationService.sln
 
       - name: Build the solution
-        run: dotnet build "./NotificationService/NotificationService.sln" --configuration Release --no-restore
+        run: dotnet build "./NotificationService.sln" --configuration Release --no-restore
 
       - name: Run unit tests
         run: |
-          dotnet test "./NotificationService/Notification.Tests" \
+          dotnet test "./NotificationService/Notification.Tests.csproj" \
             --configuration Release \
             --no-build \
             --logger "trx;LogFileName=TestResults.trx"
