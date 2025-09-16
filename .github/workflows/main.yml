@@ -27,7 +27,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          dotnet test "./NotificationService/Notification.Tests.csproj" \
+          dotnet test "./Notification.Tests/Notification.Tests.csproj" \
             --configuration Release \
             --no-build \
             --logger "trx;LogFileName=TestResults.trx"
