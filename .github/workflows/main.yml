@@ -20,7 +20,7 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Restore dependencies
-        run: dotnet restore ./NotificationService/NotificationService.sln
+        run: dotnet restore ./NotificationService.sln
 
       - name: Build the solution
         run: dotnet build "./NotificationService/NotificationService.sln" --configuration Release --no-restore
