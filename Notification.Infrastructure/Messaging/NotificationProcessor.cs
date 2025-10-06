@@ -43,7 +43,7 @@ namespace NotificationService.Infrastructure.Messaging
             if (template == null)
                 throw new ArgumentException($"Template '{notificationSendRequest.Type}' not found");
 
-            if (template.Enabled)
+            if (!template.Enabled)
             {
                 throw new Exception("The template is disabled");
             }

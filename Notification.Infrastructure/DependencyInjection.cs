@@ -21,7 +21,7 @@ namespace NotificationService.Infrastructure
 
 
             services.AddSingleton<ISmtpEmailService, SmtpEmailService>();
-            services.AddSingleton<ISmtpEmailService, FakeEmailService>();
+            //services.AddSingleton<ISmtpEmailService, FakeEmailService>();
      
 
             return services;
