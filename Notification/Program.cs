@@ -6,14 +6,44 @@ using NotificationService.Application.Services;
 using NotificationService.Infrastructure;
 using NotificationService.Infrastructure.Data;
 using NotificationService.Infrastructure.Email;
+using NotificationService.Infrastructure.Logger;
 using NotificationService.Infrastructure.Messaging;
 using NotificationService.Mapper;
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.OpenSearch;
+using AutoRegisterTemplateVersion = Serilog.Sinks.OpenSearch.AutoRegisterTemplateVersion;
+using CertificateValidations = OpenSearch.Net.CertificateValidations;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+
+Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine(msg));
+
 
 builder.AddServiceDefaults();
 
 // Add services to the container.
+
+
+var username= builder.Configuration.GetSection("OpenSearchConfig:Username").Value;
+var password  = builder.Configuration.GetSection("OpenSearchConfig:Password").Value;
+
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.OpenSearch(new OpenSearchSinkOptions(new Uri("https://localhost:9200"))
+    {
+        AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.OSv1,
+        MinimumLogEventLevel = LogEventLevel.Verbose,
+        TypeName = "_doc",
+        InlineFields = false,
+        ModifyConnectionSettings = x =>
+            x.BasicAuthentication(username, password)
+                .ServerCertificateValidationCallback(CertificateValidations.AllowAll)
+                .ServerCertificateValidationCallback((o, certificate, chain, errors) => true),
+        IndexFormat = "notification-service-{0:yyyy.MM.dd}",
+    })
+    .CreateLogger();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,7 +74,8 @@ builder.AddKafkaConsumer<string, string>("kafka", options =>
 
 
 builder.Services.AddHostedService<KafkaMessageConsumer>();
-
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 var app = builder.Build();
 
