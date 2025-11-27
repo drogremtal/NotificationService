@@ -1,5 +1,6 @@
 using Confluent.Kafka;
 using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using NotificationService;
 using NotificationService.Application.Interface;
 using NotificationService.Application.Services;
@@ -16,6 +17,7 @@ using AutoRegisterTemplateVersion = Serilog.Sinks.OpenSearch.AutoRegisterTemplat
 using CertificateValidations = OpenSearch.Net.CertificateValidations;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.Configure<ApiBehaviorOptions>(opt => opt.SuppressModelStateInvalidFilter = true);
 builder.Logging.ClearProviders();
 
 Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine(msg));
@@ -28,10 +30,11 @@ builder.AddServiceDefaults();
 
 var username= builder.Configuration.GetSection("OpenSearchConfig:Username").Value;
 var password  = builder.Configuration.GetSection("OpenSearchConfig:Password").Value;
+var opensearch = builder.Configuration.GetSection("OpenSearchConfig:Server").Value;
 
 var logger = new LoggerConfiguration()
     .WriteTo.Console()
-    .WriteTo.OpenSearch(new OpenSearchSinkOptions(new Uri("https://localhost:9200"))
+    .WriteTo.OpenSearch(new OpenSearchSinkOptions(new Uri(uriString: opensearch))
     {
         AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.OSv1,
         MinimumLogEventLevel = LogEventLevel.Verbose,
