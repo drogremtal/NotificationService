@@ -30,7 +30,7 @@ builder.AddServiceDefaults();
 
 var username= builder.Configuration.GetSection("OpenSearchConfig:Username").Value;
 var password  = builder.Configuration.GetSection("OpenSearchConfig:Password").Value;
-var opensearch = builder.Configuration.GetSection("OpenSearchConfig:Server").Value;
+var opensearch = builder.Configuration.GetSection("OpenSearchConfig:Url").Value;
 
 var logger = new LoggerConfiguration()
     .WriteTo.Console()
