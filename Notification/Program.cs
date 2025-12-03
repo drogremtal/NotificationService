@@ -67,9 +67,18 @@ builder.Services.AddScoped<INotificationTemplateService, NotificationTemplateSer
 
 builder.Services.AddScoped<IMessageBrokerProducer, KafkaProducer>();
 
-builder.AddKafkaProducer<string, string>("kafka");
-builder.AddKafkaConsumer<string, string>("kafka", options =>
+
+var bootstrap = builder.Configuration["Aspire:Confluent:Kafka:Consumer:BootstrapServers"];
+
+builder.AddKafkaProducer<string, string>("Aspire", options =>
 {
+    options.Config.BootstrapServers = bootstrap;
+
+});
+builder.AddKafkaConsumer<string, string>("Aspire",
+    options =>
+{
+    options.Config.BootstrapServers = bootstrap;
     options.Config.GroupId = "notification";
     options.Config.AutoOffsetReset = AutoOffsetReset.Earliest;
     options.Config.EnableAutoCommit = false;
