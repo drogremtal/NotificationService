@@ -1,6 +1,6 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+# См. статью по ссылке https://aka.ms/customizecontainer, чтобы узнать как настроить контейнер отладки и как Visual Studio использует этот Dockerfile для создания образов для ускорения отладки.
 
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
+# Этот этап используется при запуске из VS в быстром режиме (по умолчанию для конфигурации отладки)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
@@ -8,23 +8,28 @@ EXPOSE 8080
 EXPOSE 8081
 
 
-# This stage is used to build the service project
+# Этот этап используется для сборки проекта службы
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Notification/Notification.csproj", "Notification/"]
-RUN dotnet restore "./Notification/Notification.csproj"
+COPY ["src/backend/services/NotificationService/Directory.Packages.props", "src/backend/services/NotificationService/"]
+COPY ["src/backend/services/NotificationService/Notification/NotificationService.csproj", "src/backend/services/NotificationService/Notification/"]
+COPY ["src/backend/services/NotificationService/Notification.Application/NotificationService.Application.csproj", "src/backend/services/NotificationService/Notification.Application/"]
+COPY ["src/backend/services/NotificationService/Notification.Domain/NotificationService.Domain.csproj", "src/backend/services/NotificationService/Notification.Domain/"]
+COPY ["src/backend/services/NotificationService/Notification.Infrastructure/NotificationService.Infrastructure.csproj", "src/backend/services/NotificationService/Notification.Infrastructure/"]
+#COPY ["src/backend/services/NotificationService/Notification.ServiceDefaults/NotificationService.ServiceDefaults.csproj", "src/backend/services/NotificationService/Notification.ServiceDefaults/"]
+RUN dotnet restore "./src/backend/services/NotificationService/Notification/NotificationService.csproj"
 COPY . .
-WORKDIR "/src/Notification"
-RUN dotnet build "./Notification.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/backend/services/NotificationService/Notification"
+RUN dotnet build "./NotificationService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# Этот этап используется для публикации проекта службы, который будет скопирован на последний этап
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Notification.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./NotificationService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# Этот этап используется в рабочей среде или при запуске из VS в обычном режиме (по умолчанию, когда конфигурация отладки не используется)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Notification.dll"]
+ENTRYPOINT ["dotnet", "NotificationService.dll"]
