@@ -28,8 +28,8 @@ builder.AddServiceDefaults();
 // Add services to the container.
 
 
-var username= builder.Configuration.GetSection("OpenSearchConfig:Username").Value;
-var password  = builder.Configuration.GetSection("OpenSearchConfig:Password").Value;
+var username = builder.Configuration.GetSection("OpenSearchConfig:Username").Value;
+var password = builder.Configuration.GetSection("OpenSearchConfig:Password").Value;
 var opensearch = builder.Configuration.GetSection("OpenSearchConfig:Url").Value;
 
 var logger = new LoggerConfiguration()
@@ -53,7 +53,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAutoMapper(cfg => { },typeof(TemplateProfiles));
+builder.Services.AddAutoMapper(cfg => { }, typeof(TemplateProfiles));
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddScoped<INotificationService, NotificationAppService>();
 
@@ -70,20 +70,35 @@ builder.Services.AddScoped<IMessageBrokerProducer, KafkaProducer>();
 
 var bootstrap = builder.Configuration["Aspire:Confluent:Kafka:Consumer:BootstrapServers"];
 
-builder.AddKafkaProducer<string, string>("Aspire", options =>
-{
-    options.Config.BootstrapServers = bootstrap;
 
-});
-builder.AddKafkaConsumer<string, string>("Aspire",
-    options =>
+if (string.IsNullOrEmpty(bootstrap))
 {
-    options.Config.BootstrapServers = bootstrap;
-    options.Config.GroupId = "notification";
-    options.Config.AutoOffsetReset = AutoOffsetReset.Earliest;
-    options.Config.EnableAutoCommit = false;
-});
+    builder.AddKafkaProducer<string, string>("kafka");
+    builder.AddKafkaConsumer<string, string>("kafka", options =>
+    {
 
+        options.Config.GroupId = "notification";
+        options.Config.AutoOffsetReset = AutoOffsetReset.Earliest;
+        options.Config.EnableAutoCommit = false;
+    });
+}
+else
+{
+
+    builder.AddKafkaProducer<string, string>("Aspire", options =>
+    {
+        options.Config.BootstrapServers = bootstrap;
+
+    });
+    builder.AddKafkaConsumer<string, string>("Aspire",
+        options =>
+    {
+        options.Config.BootstrapServers = bootstrap;
+        options.Config.GroupId = "notification";
+        options.Config.AutoOffsetReset = AutoOffsetReset.Earliest;
+        options.Config.EnableAutoCommit = false;
+    });
+}
 
 builder.Services.AddHostedService<KafkaMessageConsumer>();
 builder.Logging.ClearProviders();
